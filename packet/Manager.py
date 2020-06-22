@@ -539,14 +539,14 @@ class Manager(BaseAPI):
         return vlans
 
     def create_vlan(
-        self, project_id, facility, vxlan=None, vlan=None, description=None
+        self, project_id, facility, vxlan=None, description=None, vlan=None
     ):
         params = {
             "project_id": project_id,
             "facility": facility,
             "vxlan": vxlan,
-            "vlan": vlan,
             "description": description,
+            "vlan": vlan,
         }
         data = self.call_api(
             "projects/%s/virtual-networks" % project_id, type="POST", params=params
